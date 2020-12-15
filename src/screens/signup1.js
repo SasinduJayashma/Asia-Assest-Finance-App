@@ -1,28 +1,43 @@
-import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View, SafeAreaView, } from 'react-native';
-
+import { StyleSheet, Text, TouchableOpacity, View, SafeAreaView, Dimensions } from 'react-native';
+import React, { useState } from 'react';
 import HeaderComp from '../components/HeaderComp';
 import AsiaImageComp from '../components/AsiaImageComp.js';
 import TextFieldComp from '../components/TextFieldComp.js';
 
+const windowWidth = Dimensions.get('window').width;
 
-export default function signup1({navigation}) {
-  return (
-    <SafeAreaView  style={styles.container}>
-        <HeaderComp bodyText="Asia Assest Finance - Redemption" arrowBackExist={true}/>
-        <AsiaImageComp style={styles.inputView} TextHeading='Signup' TextSubtitle="Let's create a new user account."/>
-        <View style={styles.inputView}>
-          <TextFieldComp InputHeaderText='Your Full Name'></TextFieldComp>
-          <TextFieldComp InputHeaderText='Email' keyboardType='email-address'></TextFieldComp>
-          <TextFieldComp InputHeaderText='Mobile Number' keyboardType='phone-pad' ></TextFieldComp>
-        </View>
-        <View style={styles.buttonView}>
-          <TouchableOpacity style={styles.loginButton} onPress={() => navigation.navigate("signup2")}>
-            <Text style={styles.loginButtonText}>Next  &gt;</Text>
-          </TouchableOpacity>
-        </View>
-    </SafeAreaView >
-  ); 
+const signup1 = (props) => {
+  
+  const [email, setEmail] = useState();
+
+  function getEmail() {
+    var sharedPreferences = RNSharedPreferences.getSharedPreferences("userInfo");
+    sharedPreferences.putString("name", "Karthik", (result) => {
+      // Should return true here, if PUT is successful.
+      console.log("PUT result :: " + result);
+    });
+
+    console.log(sharedPreferences.getString("name", (result) => {
+      // Should return Karthik here ...
+      console.log("Get result :: " + result);
+    }));
+  }
+
+    return (
+      <SafeAreaView  style={styles.container}>
+          <HeaderComp bodyText="Asia Assest Finance - Redemption" arrowBackExist={true}/>
+          <AsiaImageComp style={styles.inputView} TextHeading='Signup' TextSubtitle="Let's create a new user account."/>
+          <View style={styles.inputView}>
+            <TextFieldComp InputHeaderText='Your Email Address' keyboardType="email-address"></TextFieldComp>
+          </View>
+          <View style={styles.buttonView}>
+            <TouchableOpacity style={styles.loginButton} onPress={getEmail}>
+              <Text style={styles.loginButtonText}>Next  &gt;</Text>
+            </TouchableOpacity>
+          </View>
+      </SafeAreaView >
+    ); 
+
 }
 
 const styles = StyleSheet.create({
@@ -94,3 +109,5 @@ const styles = StyleSheet.create({
   },
 });
 
+
+export default signup1;

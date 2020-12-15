@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Dimensions, Text, View, TextInput } from 'react-native';
 import { } from "native-base";
 
-export default function TextFieldComp( {InputHeaderText , keyboardType} ) {
+export default function TextFieldComp( {InputHeaderText , keyboardType, onChangeText} ) {
   return (
     <View style={styles.view}>
         <Text style={styles.textSub}>{InputHeaderText}</Text>
@@ -12,6 +12,7 @@ export default function TextFieldComp( {InputHeaderText , keyboardType} ) {
             secureTextEntry = {true}
             keyboardType = {keyboardType}
             autoCapitalize = 'none'
+            onChangeText={onChangeText}
             />
     </View>
   );

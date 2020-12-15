@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View, SafeAreaView, } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 import HeaderComp from '../components/HeaderComp';
 import AsiaImageComp from '../components/AsiaImageComp.js';
@@ -9,28 +10,33 @@ import TextFieldComp from '../components/TextFieldComp.js';
 export default function login({navigation}) {
   return (
     <SafeAreaView  style={styles.container}>
-        <HeaderComp bodyText="" arrowBackExist={false}/>
-        <AsiaImageComp style={styles.inputView} TextHeading='Welcome' TextSubtitle='Get started by login into your account.'/>
-        <View style={styles.inputView}>
-          <TextFieldComp InputHeaderText='Email'  keyboardType='email-address'></TextFieldComp>
-          <TextFieldComp InputHeaderText='Password' ></TextFieldComp>
-        </View>
-        <View style={styles.forgetPasswordView}>
-          <TouchableOpacity style={styles.loginButton}>
-            <Text style={styles.loginButtonText}>Login</Text>
-          </TouchableOpacity>
-          <Text style={styles.textSub}>Forget Password?</Text>
-        </View>
-        <View style={styles.buttonView}>
-          <TouchableOpacity style={styles.loginButton} onPress={() => navigation.navigate("signup1")}>
-            <Text style={styles.loginButtonText}>Don't have an account?</Text>
-          </TouchableOpacity>
-        </View>
+      <HeaderComp bodyText="" arrowBackExist={false}/>
+          <View style={{flex :2}}>
+            <AsiaImageComp style={styles.inputView} TextHeading='Welcome' TextSubtitle='Get started by login into your account.'/>
+          </View>
+          <View style={{flex :3}}>
+            <View style={styles.inputView}>
+                <TextFieldComp InputHeaderText='Email'  keyboardType='email-address'></TextFieldComp>
+                <TextFieldComp InputHeaderText='Password' ></TextFieldComp>
+            </View>
+            <View style={styles.forgetPasswordView}>
+                <TouchableOpacity style={styles.loginButton}>
+                  <Text style={styles.loginButtonText}>Login</Text>
+                </TouchableOpacity>
+                <Text style={styles.textSub}>Forget Password?</Text>
+            </View>
+          </View>
+          <View style={styles.buttonView}>
+            <TouchableOpacity style={styles.loginButton} onPress={() => navigation.navigate("signup1")}>
+              <Text style={styles.loginButtonText}>Don't have an account?</Text>
+            </TouchableOpacity>
+          </View>
     </SafeAreaView >
   ); 
 }
 
 const styles = StyleSheet.create({
+  
   container: {
     flex: 1,
     backgroundColor: "white",
@@ -54,11 +60,12 @@ const styles = StyleSheet.create({
     fontWeight: "700",
   },
   buttonView:{
+    flex: 1,
     display: 'flex',
     alignItems: 'center',
-    flex: 1,
-    justifyContent: 'flex-end',
-    marginBottom: 50
+    flexDirection: 'column',
+    justifyContent: 'center',
+    marginBottom: 40,
   },
   loginButton:{
     backgroundColor: '#2E3092',

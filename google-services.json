@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "884289617152",
+    "firebase_url": "https://aaf-redemption-dev.firebaseio.com",
+    "project_id": "aaf-redemption-dev",
+    "storage_bucket": "aaf-redemption-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:884289617152:android:3db5457c72783ba22e47e5",
+        "android_client_info": {
+          "package_name": "com.aaf.goldloans"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "884289617152-pv4n23umnccd6260qr41dvt83lt1v6jk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZ28ejqFHUodAmBo1pEee0npwCDE-2NDQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "884289617152-pv4n23umnccd6260qr41dvt83lt1v6jk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

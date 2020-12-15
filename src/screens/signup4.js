@@ -70,7 +70,7 @@ export default function signup4({navigation}) {
 
             <View style={{flex :1}}>
                 <View style={styles.bottomButtonView}>
-                <TouchableOpacity style={styles.bottomButton} onPress={() => navigation.navigate("signup4")}>
+                <TouchableOpacity style={styles.bottomButton} onPress={() => navigation.navigate("loans")}>
                     <Text style={styles.loginButtonText}>Next  &gt;</Text>
                 </TouchableOpacity>
                 </View>
